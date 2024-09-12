@@ -20,7 +20,7 @@ public class ForumServiceImpl implements ForumService {
     @Override
     public ForumDTO createForum(ForumDTO forumDTO) {
         Forum forum = new Forum();
-        forum.setName(forumDTO.getName());
+        forum.setNom(forumDTO.getName());
         forum.setDescription(forumDTO.getDescription());
         Forum savedForum = forumRepository.save(forum);
         return convertToDTO(savedForum);
@@ -40,7 +40,7 @@ public class ForumServiceImpl implements ForumService {
 
     private ForumDTO convertToDTO(Forum forum) {
         ForumDTO forumDTO = new ForumDTO();
-        forumDTO.setName(forum.getName());
+        forumDTO.setName(forum.getNom());
         forumDTO.setDescription(forum.getDescription());
         return forumDTO;
     }

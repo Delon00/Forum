@@ -1,21 +1,25 @@
 package ci.apirest.forum.models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Entity
+@Table(name = "forums")
 @Data
 @NoArgsConstructor
+@AllArgsConstructor
 public class Forum {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String name;
+
+    private String nom;
     private String description;
 
+    @OneToMany(mappedBy = "forum", cascade = CascadeType.ALL)
+    private List<Sujet> sujets;
 }
-

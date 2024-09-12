@@ -12,6 +12,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -41,8 +42,14 @@ public class SujetServiceImpl implements SujetService {
     }
 
     @Override
-    public SujetDTO getSujetById(Long id) {
+    public SujetDTO getSujetDetails(Long id) {
         Sujet sujet = sujetRepository.findById(id).orElse(null);
         return sujet != null ? sujetMapper.toDto(sujet) : null;
     }
+
+    @Override
+    public Optional<SujetDTO> findOneSujetBySlug(String slug) {
+        return Optional.empty();
+    }
+
 }

@@ -1,6 +1,6 @@
 package ci.apirest.forum.services.DTO;
 
-import ci.apirest.forum.services.DTO.MessageDTO;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

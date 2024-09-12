@@ -18,9 +18,11 @@ public class Sujet {
     private Long id;
 
     private String titre;
+    private String slug;
+    private String nom;
 
     @ManyToOne
-    @JoinColumn(name = "forum_id")
+    @JoinColumn(name = "forum_id", nullable = false)
     private Forum forum;
 
     @OneToMany(mappedBy = "sujet", cascade = CascadeType.ALL)

@@ -1,6 +1,5 @@
 package ci.apirest.forum.services.DTO;
 
-import ci.apirest.forum.services.DTO.MessageDTO;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -13,6 +12,8 @@ import java.util.List;
 public class SujetDTO {
     private Long id;
     private String titre;
+    private String nom;
+    private String slug;
     private Long forumId; // Référence à l'ID du forum associé
     private List<MessageDTO> messages; // Pour inclure les messages dans le DTO du sujet
 }

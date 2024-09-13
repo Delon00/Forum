@@ -13,7 +13,7 @@ Ce projet est une API REST permettant la gestion d'un forum. Il permet de créer
 
 1. *Clonez le projet :*
    bash
-   git clone <URL_DU_REPO>
+   git clone <https://github.com/Delon00/Forum.git>
    cd forum-api
    
 

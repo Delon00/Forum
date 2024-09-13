@@ -1,0 +1,537 @@
+{
+	"info": {
+		"_postman_id": "0a9c5d43-6293-4904-b029-f1614511d503",
+		"name": "Forum_API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "36545496"
+	},
+	"item": [
+		{
+			"name": "Gestion_forums",
+			"item": [
+				{
+					"name": "SaveForums",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/forums",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"forums"
+							]
+						},
+						"description": "Crée un nouveau forum avec un nom et une description.\n\nCrée un nouveau forum avec un nom et une description."
+					},
+					"response": [
+						{
+							"name": "SaveForums",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/api/forums",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"forums"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": "{\r\n    \"id\": 1,\r\n    \"nom\": \"Nom du Forum\",\r\n    \"description\": \"Description du Forum\"\r\n}"
+						}
+					]
+				},
+				{
+					"name": "Get All Forums",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/forums",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"forums"
+							]
+						},
+						"description": "Récupère tous les forums disponibles."
+					},
+					"response": [
+						{
+							"name": "Get All Forums",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8080/api/forums",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"forums"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": "[\r\n    {\r\n        \"id\": 1,\r\n        \"nom\": \"Nom du Forum\",\r\n        \"description\": \"Description du Forum\"\r\n    },\r\n    {\r\n        \"id\": 2,\r\n        \"nom\": \"Autre Forum\",\r\n        \"description\": \"Description de l'Autre Forum\"\r\n    }\r\n]"
+						}
+					]
+				},
+				{
+					"name": "Get Forum by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/forums/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"forums",
+								"1"
+							]
+						},
+						"description": "Récupère un forum spécifique en utilisant son ID"
+					},
+					"response": [
+						{
+							"name": "Get Forum by ID",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8080/api/forums/1",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"forums",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": "{\r\n    \"id\": 1,\r\n    \"slug\": \"technology_c4d0d4a6-a8a9-4c55-9c9c-aed6801741c3\",\r\n    \"nom\": \"Technology \",\r\n    \"description\": \"Discussion1 about technology trends and news.\",\r\n    \"sujets\": []\r\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Forum by Slug",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/forums/slug/technology_c4d0d4a6-a8a9-4c55-9c9c-aed6801741c3",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"forums",
+								"slug",
+								"technology_c4d0d4a6-a8a9-4c55-9c9c-aed6801741c3"
+							]
+						},
+						"description": "Récupère un forum spécifique en utilisant son slug."
+					},
+					"response": [
+						{
+							"name": "Get Forum by Slug",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8080/api/forums/slug/technology_c4d0d4a6-a8a9-4c55-9c9c-aed6801741c3",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"forums",
+										"slug",
+										"technology_c4d0d4a6-a8a9-4c55-9c9c-aed6801741c3"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": "{\r\n    \"id\": 1,\r\n    \"slug\": \"technology_c4d0d4a6-a8a9-4c55-9c9c-aed6801741c3\",\r\n    \"nom\": \"Technology \",\r\n    \"description\": \"Discussion1 about technology trends and news.\",\r\n    \"sujets\": []\r\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Gestion_sujets",
+			"item": [
+				{
+					"name": "Get Sujets by slug",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/sujets/slug/latecvbst111_tech11_trends_29abf859-5405-4b45-9bb2-22e44383554e",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"sujets",
+								"slug",
+								"latecvbst111_tech11_trends_29abf859-5405-4b45-9bb2-22e44383554e"
+							]
+						},
+						"description": "Récupère un sujet spécifique en utilisant son slug."
+					},
+					"response": [
+						{
+							"name": "Get Sujets by slug",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8080/api/sujets/slug/latecvbst111_tech11_trends_29abf859-5405-4b45-9bb2-22e44383554e",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"sujets",
+										"slug",
+										"latecvbst111_tech11_trends_29abf859-5405-4b45-9bb2-22e44383554e"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": "{\r\n    \"id\": 1,\r\n    \"titre\": \"Latecvbst111 Tech11 Trends\",\r\n    \"nom\": \"Latest Trends in Technology\",\r\n    \"slug\": \"latecvbst111_tech11_trends_f8ae87cc-261c-4388-bb9c-3da804f2d24d\",\r\n    \"forumId\": null,\r\n    \"messages\": []\r\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Sujets by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/sujets/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"sujets",
+								"1"
+							]
+						},
+						"description": "Récupère un sujet spécifique en utilisant son id."
+					},
+					"response": [
+						{
+							"name": "Get Sujets by slug",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8080/api/sujets/slug/latecvbst111_tech11_trends_29abf859-5405-4b45-9bb2-22e44383554e",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"sujets",
+										"slug",
+										"latecvbst111_tech11_trends_29abf859-5405-4b45-9bb2-22e44383554e"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": "{\r\n    \"id\": 1,\r\n    \"titre\": \"Latecvbst111 Tech11 Trends\",\r\n    \"nom\": \"Latest Trends in Technology\",\r\n    \"slug\": \"latecvbst111_tech11_trends_f8ae87cc-261c-4388-bb9c-3da804f2d24d\",\r\n    \"forumId\": null,\r\n    \"messages\": []\r\n}"
+						}
+					]
+				},
+				{
+					"name": "SaveSujet",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"titre\": \"Latecvbst111 Tech11 Trends\",\r\n    \"nom\": \"Latest Trends in Technology\",\r\n    \"forumId\":1\r\n    \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/sujets",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"sujets"
+							]
+						},
+						"description": "Crée un nouveau sujet dans le forum."
+					},
+					"response": [
+						{
+							"name": "SaveSujet",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"titre\": \"Latecvbst111 Tech11 Trends\",\r\n    \"nom\": \"Latest Trends in Technology\",\r\n    \"forumId\":1\r\n    \r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/api/sujets",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"sujets"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": "{\r\n    \"id\": 1,\r\n    \"titre\": \"Latecvbst111 Tech11 Trends\",\r\n    \"nom\": \"Latest Trends in Technology\",\r\n    \"slug\": \"latecvbst111_tech11_trends_aa44cc4a-c01a-4ed4-b27a-06dc0070b454\",\r\n    \"forumId\": null,\r\n    \"messages\": null\r\n}"
+						}
+					]
+				},
+				{
+					"name": "Get All Sujets",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/sujets",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"sujets"
+							]
+						},
+						"description": "Récupère tous les sujets disponibles dans le forum."
+					},
+					"response": [
+						{
+							"name": "Get All Sujets",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8080/api/sujets",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"sujets"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": "[\r\n    {\r\n        \"id\": 1,\r\n        \"titre\": \"Latecvbst111 Tech11 Trends\",\r\n        \"nom\": \"Latest Trends in Technology\",\r\n        \"slug\": \"latecvbst111_tech11_trends_f8ae87cc-261c-4388-bb9c-3da804f2d24d\",\r\n        \"forumId\": null,\r\n        \"messages\": []\r\n    },\r\n    {\r\n        \"id\": 2,\r\n        \"titre\": \"Latecvbst111 Tech11 Trends\",\r\n        \"nom\": \"Latest Trends in Technology\",\r\n        \"slug\": \"latecvbst111_tech11_trends_5a85a628-ed67-405b-a54d-7cd1ec91d53e\",\r\n        \"forumId\": null,\r\n        \"messages\": []\r\n    }\r\n]"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Gestion_messages",
+			"item": [
+				{
+					"name": "SaveMessages",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"contenu\": \"Ceci est un message dans le sujet.\",\r\n    \"sujetId\": 1 // Remplace par l'ID d'un des sujets que tu as récupérés\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/messages",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"messages"
+							]
+						},
+						"description": "Crée un nouveau message dans un sujet spécifique."
+					},
+					"response": [
+						{
+							"name": "SaveMessages",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"contenu\": \"Ceci est un message dans le sujet.\",\r\n    \"sujetId\": 1 // Remplace par l'ID d'un des sujets que tu as récupérés\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/api/messages",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"messages"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": "{\r\n    \"id\": 2,\r\n    \"contenu\": \"Ceci est un message2 concernant le sujet 'Titre du Sujet'. Je pense que ce sujet est très intéressant et mérite d'être discuté davantage.\",\r\n    \"sujetId\": null\r\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Get All massage by SujetID",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nom\": \"Latest Tech Trends\",\r\n    \"forumId\": 1,\r\n    \"slug\": \"latest-tech-trends\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/messages/sujet/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"messages",
+						"sujet",
+						"1"
+					]
+				},
+				"description": "Récupère tous les messages d'un sujet spécifique."
+			},
+			"response": [
+				{
+					"name": "Get All massage by SujetID",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/sujets/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"sujets",
+								"1"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "[\r\n    {\r\n        \"id\": 1,\r\n        \"contenu\": \"Ceci est un message concernant le sujet 'Titre du Sujet'. Je pense que ce sujet est très intéressant et mérite d'être discuté davantage.\",\r\n        \"sujetId\": null\r\n    },\r\n    {\r\n        \"id\": 3,\r\n        \"contenu\": \"Ceci est un message2 concernant le sujet 'Titre du Sujet'. Je pense que ce sujet est très intéressant et mérite d'être discuté davantage.\",\r\n        \"sujetId\": null\r\n    },\r\n    {\r\n        \"id\": 4,\r\n        \"contenu\": \"Ceci est un message2 concernant le sujet 'Titre du Sujet'. Je pense que ce sujet est très intéressant et mérite d'être discuté davantage.\",\r\n        \"sujetId\": null\r\n    }\r\n]"
+				}
+			]
+		}
+	]
+}

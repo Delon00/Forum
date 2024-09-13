@@ -8,37 +8,40 @@ import ci.apirest.forum.services.DTO.MessageDTO;
 import ci.apirest.forum.services.MessageService;
 import ci.apirest.forum.services.mapper.MessageMapper;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
+@Slf4j
 @Service
 @RequiredArgsConstructor
 public class MessageServiceImpl implements MessageService {
 
-
     private final MessageRepository messageRepository;
-    private final MessageMapper messageMapper;
     private final SujetRepository sujetRepository;
+    private final MessageMapper messageMapper;
 
     @Override
     public MessageDTO createMessage(MessageDTO messageDTO) {
+        log.debug("Request to save Message: {}", messageDTO);
+
+        Sujet sujet = sujetRepository.findById(messageDTO.getSujetId())
+                .orElseThrow(() -> new RuntimeException("Sujet not found"));
+
         Message message = messageMapper.toEntity(messageDTO);
-        Sujet sujet = sujetRepository.findById(messageDTO.getSujetId()).orElse(null);
-        if (sujet != null) {
-            message.setSujet(sujet);
-            Message savedMessage = messageRepository.save(message);
-            return messageMapper.toDto(savedMessage);
-        }
-        return null;
+        message.setSujet(sujet); // Assigner le sujet au message
+
+        message = messageRepository.save(message);
+        return messageMapper.toDto(message);
     }
-
-
 
     @Override
     public List<MessageDTO> getMessagesBySujetId(Long sujetId) {
-        List<Message> messages = messageRepository.findBySujetId(sujetId);
-        return messages.stream().map(messageMapper::toDto).collect(Collectors.toList());
+        log.debug("Request to get Messages for Sujet ID: {}", sujetId);
+        return messageRepository.findBySujetId(sujetId).stream()
+                .map(messageMapper::toDto)
+                .toList();
     }
+
 }

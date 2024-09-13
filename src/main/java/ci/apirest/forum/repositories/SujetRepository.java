@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Optional;
 
 public interface SujetRepository extends JpaRepository<Sujet, Long> {
-    List<Sujet> findByForumId(Long forumId); // Récupérer les sujets par ID de forum
+    List<Sujet> findByForumId(Long forumId); // Récupérer les sujets par ID du forum
     Optional<Sujet> findBySlug(String slug); // Récupérer un sujet par slug
 }
 

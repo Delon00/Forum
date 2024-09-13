@@ -2,9 +2,11 @@ package ci.apirest.forum.services.Impl;
 
 import ci.apirest.forum.models.Message;
 import ci.apirest.forum.models.Sujet;
+import ci.apirest.forum.repositories.ForumRepository;
 import ci.apirest.forum.repositories.MessageRepository;
 import ci.apirest.forum.repositories.SujetRepository;
 import ci.apirest.forum.services.DTO.MessageDTO;
+import ci.apirest.forum.services.ForumService;
 import ci.apirest.forum.services.MessageService;
 import ci.apirest.forum.services.mapper.MessageMapper;
 import lombok.RequiredArgsConstructor;
@@ -21,6 +23,7 @@ public class MessageServiceImpl implements MessageService {
     private final MessageRepository messageRepository;
     private final SujetRepository sujetRepository;
     private final MessageMapper messageMapper;
+    private final ForumService forumService;
 
     @Override
     public MessageDTO createMessage(MessageDTO messageDTO) {

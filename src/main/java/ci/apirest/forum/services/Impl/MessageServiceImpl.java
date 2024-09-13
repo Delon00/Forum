@@ -18,6 +18,7 @@ import java.util.List;
 @Slf4j
 @Service
 @RequiredArgsConstructor
+
 public class MessageServiceImpl implements MessageService {
 
     private final MessageRepository messageRepository;
@@ -25,12 +26,15 @@ public class MessageServiceImpl implements MessageService {
     private final MessageMapper messageMapper;
     private final ForumService forumService;
 
+
+
     @Override
     public MessageDTO createMessage(MessageDTO messageDTO) {
         log.debug("Request to save Message: {}", messageDTO);
 
         Sujet sujet = sujetRepository.findById(messageDTO.getSujetId())
                 .orElseThrow(() -> new RuntimeException("Sujet not found"));
+
 
         Message message = messageMapper.toEntity(messageDTO);
         message.setSujet(sujet); // Assigner le sujet au message

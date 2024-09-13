@@ -25,6 +25,7 @@ public class Sujet implements Serializable {
     @Column(nullable = false, length = 150)
     private String titre;
 
+    @Column(unique = true)
     private String slug;
 
     @NotBlank(message = "Le nom est obligatoire.")

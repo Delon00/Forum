@@ -24,10 +24,10 @@ public class Forum implements Serializable {
     @Column(unique = true)
     private String slug;
 
-    @NotBlank(message = "Le nom (titre) est obligatoire.")
-    @Size(max = 100, message = "Le nom ne doit pas dépasser 100 caractères.")
-    @Column(nullable = false, length = 100)
-    private String nom;
+//    @NotBlank(message = "Le nom (titre) est obligatoire.")
+//    @Size(max = 100, message = "Le nom ne doit pas dépasser 100 caractères.")
+//    @Column(nullable = false, length = 100)
+//    private String nom;
 
     @NotBlank(message = "La description est obligatoire.")
     @Size(max = 500, message = "La description ne doit pas dépasser 500 caractères.")

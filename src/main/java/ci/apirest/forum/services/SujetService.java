@@ -6,9 +6,9 @@ import java.util.List;
 import java.util.Optional;
 
 public interface SujetService {
-    SujetDTO createSujet(SujetDTO sujetDTO); // Créer un sujet
-    List<SujetDTO> getAllSujets(); // Récupérer tous les sujets
-    Optional<SujetDTO> getSujetById(Long id); // Récupérer un sujet par ID
-    List<SujetDTO> getSujetsByForumId(Long forumId); // Récupérer les sujets par forum
-    Optional<SujetDTO> findOneSujetBySlug(String slug); // Récupérer un sujet par slug
+    SujetDTO createSujet(SujetDTO sujetDTO);
+    List<SujetDTO> getAllSujets();
+    Optional<SujetDTO> getSujetById(Long id);
+    List<SujetDTO> getSujetsByForumId(Long forumId);
+    Optional<SujetDTO> findOneSujetBySlug(String slug);
 }

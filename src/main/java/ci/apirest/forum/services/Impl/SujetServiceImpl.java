@@ -29,24 +29,15 @@ public class SujetServiceImpl implements SujetService {
     @Override
     public SujetDTO createSujet(SujetDTO sujetDTO) {
         log.debug("Request to save Sujet: {}", sujetDTO);
-
-        // Vérifier si le forum existe
         Forum forum = forumRepository.findById(sujetDTO.getForumId())
                 .orElseThrow(() -> new RuntimeException("Forum not found"));
-
-        // Convertir le DTO en entité
         Sujet sujet = sujetMapper.toEntity(sujetDTO);
-
-        // Assigner le forum
         sujet.setForum(forum);
 
-        // Générer le slug
         sujet.setSlug(SlugifyUtils.generate(sujetDTO.getTitre()));
 
-        // Sauvegarder le sujet dans la base de données
         sujet = sujetRepository.save(sujet);
 
-        // Retourner le DTO correspondant
         return sujetMapper.toDto(sujet);
     }
 
@@ -56,7 +47,7 @@ public class SujetServiceImpl implements SujetService {
         List<SujetDTO> sujet = sujetRepository.findAll().stream()
                 .map(sujetMapper::toDto)
                 .toList();
-        log.info("Retrieved {} sujet", sujet.size()); // Journaliser le nombre de Sujet récupérés
+        log.info("Retrieved {} sujet", sujet.size());
         return sujet;
     }
 

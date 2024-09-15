@@ -6,14 +6,14 @@ import java.util.UUID;
 
 public class SlugifyUtils {
 
-    private SlugifyUtils() {} // Constructeur privé pour empêcher l'instanciation
+    private SlugifyUtils() {}
 
     public static String generate(String input) {
         // Générer un slug à partir de l'entrée en ajoutant un UUID pour l'unicité
         String value = String.format("%s,%s", input, UUID.randomUUID());
-        final Slugify slg = Slugify.builder().underscoreSeparator(true).build(); // Configurer Slugify
+        final Slugify slg = Slugify.builder().underscoreSeparator(true).build();
 
-        return slg.slugify(value); // Retourner le slug généré
+        return slg.slugify(value);
 
     }
 

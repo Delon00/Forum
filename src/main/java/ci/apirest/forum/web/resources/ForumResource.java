@@ -23,16 +23,15 @@ public class ForumResource {
     public ResponseEntity<ForumDTO> createForum(@RequestBody ForumDTO forumDTO) {
         log.debug("REST request to save forum {}", forumDTO);
 
-        // Créer le forum et générer le slug
-        ForumDTO forumDTO1 = forumService.createFormSlug(forumDTO);
+        ForumDTO forumDTO1 = forumService.createformwithSlug(forumDTO);
 
-        return new ResponseEntity<>(forumDTO1, HttpStatus.CREATED); // Retourner le forum créé
+        return new ResponseEntity<>(forumDTO1, HttpStatus.CREATED);
     }
 
     @GetMapping
     public List<ForumDTO> getAllForums() {
         log.debug("REST request to get all forums");
-        return forumService.getAllForums(); // Récupérer tous les forums
+        return forumService.getAllForums();
     }
 
     @GetMapping("/{id}")
@@ -42,22 +41,22 @@ public class ForumResource {
 
         // Vérifier si le forum est présent ou non
         if (forumDTO.isPresent()) {
-            return new ResponseEntity<>(forumDTO.get(), HttpStatus.OK); // Retourner le forum trouvé
+            return new ResponseEntity<>(forumDTO.get(), HttpStatus.OK);
         } else {
-            return new ResponseEntity<>("Forum not found", HttpStatus.NOT_FOUND); // Forum non trouvé
+            return new ResponseEntity<>("Forum not found", HttpStatus.NOT_FOUND);
         }
     }
 
-    @GetMapping("/slug/{slug}") // Nouvelle route pour récupérer un forum par son slug
+    @GetMapping("/slug/{slug}")
     public ResponseEntity<?> getForumBySlug(@PathVariable String slug) {
         log.info("REST Request to get Forum by slug: {}", slug);
         Optional<ForumDTO> forumDTO = forumService.findOneForumBySlug(slug);
 
         // Vérifier si le forum est présent ou non
         if (forumDTO.isPresent()) {
-            return new ResponseEntity<>(forumDTO.get(), HttpStatus.OK); // Retourner le forum trouvé
+            return new ResponseEntity<>(forumDTO.get(), HttpStatus.OK);
         } else {
-            return new ResponseEntity<>("Forum by slug not found", HttpStatus.NOT_FOUND); // Forum non trouvé
+            return new ResponseEntity<>("Forum by slug not found", HttpStatus.NOT_FOUND);
         }
     }
 }

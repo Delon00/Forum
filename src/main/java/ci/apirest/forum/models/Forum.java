@@ -14,7 +14,6 @@ import java.util.List;
 @Entity
 @Table(name = "forums")
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
 public class Forum implements Serializable {
     @Id

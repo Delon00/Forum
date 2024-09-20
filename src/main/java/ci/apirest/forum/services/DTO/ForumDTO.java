@@ -6,7 +6,6 @@ import java.util.List;
 
 @Getter
 @Setter
-@NoArgsConstructor
 @AllArgsConstructor
 public class ForumDTO {
     private Long id;
